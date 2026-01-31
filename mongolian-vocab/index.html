@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mongolian Vocab — Offline Mongolian Vocabulary Practice</title>
+  <meta name="description" content="Mongolian Vocab is an offline-first Mongolian–English vocabulary app with daily practice, confidence tracking, and a customizable dictionary. No accounts, no tracking." />
+  <meta name="theme-color" content="#1A1A1A" />
+  <style>
+    :root{
+      --bg:#FBF7EF;
+      --card:#FFFFFF;
+      --ink:#1F2937;
+      --muted:#6B7280;
+      --brand:#D6A525; /* warm gold */
+      --navy:#1E3A5F;
+      --border:rgba(31,41,55,.10);
+      --shadow:0 18px 40px rgba(0,0,0,.10);
+      --radius:18px;
+      --max:1060px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--ink);
+      background:radial-gradient(1200px 700px at 20% -10%, rgba(214,165,37,.15), transparent 60%),
+                 radial-gradient(1200px 700px at 90% 10%, rgba(30,58,95,.12), transparent 60%),
+                 var(--bg);
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 60px}
+    header{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px; padding:10px 0 26px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      text-decoration:none;
+    }
+    .logo{
+      width:44px; height:44px; border-radius:14px;
+      background:linear-gradient(135deg, #111827, #2B2F36);
+      display:grid; place-items:center;
+      box-shadow: 0 10px 25px rgba(0,0,0,.18);
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .logo svg{width:26px; height:26px}
+    .brand strong{font-size:16px; letter-spacing:.2px}
+    .brand span{display:block; font-size:12px; color:var(--muted); margin-top:1px}
+    nav{display:flex; gap:14px; align-items:center; flex-wrap:wrap}
+    nav a{
+      font-size:14px; color:var(--muted); text-decoration:none;
+      padding:8px 10px; border-radius:12px;
+    }
+    nav a:hover{background:rgba(31,41,55,.06); color:var(--ink)}
+    .cta{
+      display:flex; gap:10px; align-items:center;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:11px 14px; border-radius:14px;
+      text-decoration:none;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.60);
+      backdrop-filter: blur(8px);
+      color:var(--ink);
+      font-weight:600;
+      font-size:14px;
+    }
+    .btn.primary{
+      background:linear-gradient(180deg, rgba(30,58,95,1), rgba(21,44,72,1));
+      color:#fff;
+      border-color:rgba(255,255,255,.12);
+      box-shadow: 0 12px 30px rgba(30,58,95,.25);
+    }
+    .btn.primary:hover{filter:brightness(1.03)}
+    .btn:hover{filter:brightness(0.98)}
+    .hero{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:22px;
+      align-items:center;
+      padding:26px;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      background:rgba(255,255,255,.55);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+    }
+    .kicker{
+      display:inline-flex; gap:10px; align-items:center;
+      font-size:12px; font-weight:700; letter-spacing:.12em;
+      text-transform:uppercase; color:rgba(30,58,95,.85);
+      background:rgba(30,58,95,.08);
+      border:1px solid rgba(30,58,95,.12);
+      padding:7px 10px; border-radius:999px;
+      margin-bottom:14px;
+    }
+    h1{margin:0 0 10px; font-size:42px; line-height:1.1; letter-spacing:-.02em}
+    .sub{margin:0 0 18px; color:var(--muted); font-size:16px; line-height:1.6}
+    .bullets{display:grid; gap:10px; margin:18px 0 0; padding:0; list-style:none}
+    .bullets li{
+      display:flex; gap:10px; align-items:flex-start;
+      color:rgba(31,41,55,.92);
+      font-size:14px; line-height:1.45;
+    }
+    .check{
+      width:20px; height:20px; border-radius:8px;
+      display:grid; place-items:center;
+      background:rgba(214,165,37,.18);
+      border:1px solid rgba(214,165,37,.35);
+      flex:0 0 auto;
+      margin-top:1px;
+    }
+    .check svg{width:14px; height:14px}
+    .phone{
+      width:100%;
+      aspect-ratio: 9/19.5;
+      border-radius: 34px;
+      overflow:hidden;
+      border: 10px solid #0B0F14;
+      box-shadow: 0 22px 55px rgba(0,0,0,.25);
+      background:#0B0F14;
+    }
+    .phone img{width:100%; height:100%; object-fit:cover; display:block}
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+      margin-top:18px;
+    }
+    .card{
+      background:rgba(255,255,255,.70);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.06);
+    }
+    .card h3{margin:0 0 6px; font-size:16px}
+    .card p{margin:0; color:var(--muted); font-size:14px; line-height:1.55}
+    section{margin-top:22px}
+    .section-title{
+      display:flex; align-items:end; justify-content:space-between; gap:12px;
+      margin:32px 0 12px;
+    }
+    .section-title h2{margin:0; font-size:22px; letter-spacing:-.01em}
+    .section-title span{color:var(--muted); font-size:14px}
+    .shots{
+      display:grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap:12px;
+    }
+    .shot{
+      border-radius:24px;
+      border:1px solid var(--border);
+      overflow:hidden;
+      background:rgba(255,255,255,.55);
+      box-shadow: 0 10px 26px rgba(0,0,0,.06);
+      aspect-ratio: 9/19.5;
+    }
+    .shot img{width:100%; height:100%; object-fit:cover; display:block}
+    .privacy{
+      display:flex; flex-wrap:wrap; gap:10px; align-items:center;
+      color:var(--muted); font-size:13px;
+      margin-top:16px;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px; border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.55);
+      color:rgba(31,41,55,.86);
+      font-size:13px;
+    }
+    footer{
+      margin-top:44px;
+      padding-top:18px;
+      border-top:1px solid var(--border);
+      color:var(--muted);
+      font-size:13px;
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    }
+
+    @media (max-width: 980px){
+      .hero{grid-template-columns:1fr; padding:18px}
+      h1{font-size:34px}
+      .shots{grid-template-columns: repeat(2, 1fr)}
+      .grid{grid-template-columns:1fr}
+      .phone{max-width:420px; margin:0 auto}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="./marketing.html" aria-label="Mongolian Vocab Home">
+        <div class="logo" aria-hidden="true">
+          <!-- simple knot-like mark -->
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M7 7h10v10H7z" stroke="#D6A525" stroke-width="2" opacity=".9"/>
+            <path d="M7 12h10" stroke="#D6A525" stroke-width="2" opacity=".9"/>
+            <path d="M12 7v10" stroke="#D6A525" stroke-width="2" opacity=".9"/>
+          </svg>
+        </div>
+        <div>
+          <strong>Mongolian Vocab</strong>
+          <span>Offline Mongolian–English practice</span>
+        </div>
+      </a>
+
+      <nav>
+        <a href="#screens">Screenshots</a>
+        <a href="#features">Features</a>
+        <a href="./support.html">Support</a>
+        <a href="./privacy.html">Privacy</a>
+      </nav>
+
+      <div class="cta">
+        <!-- Replace # with your App Store link when ready -->
+        <a class="btn primary" href="#" rel="noopener" aria-label="Download on the App Store">
+          Download
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <div class="hero">
+        <div>
+          <div class="kicker">Offline • Private • Simple</div>
+          <h1>Learn Mongolian vocabulary with calm, daily practice.</h1>
+          <p class="sub">
+            Mongolian Vocab is an offline-first Mongolian–English vocabulary app with daily flashcard practice,
+            confidence tracking, and a customizable dictionary. No accounts. No tracking. Just learning.
+          </p>
+
+          <div class="cta" style="margin-top:14px; flex-wrap:wrap;">
+            <!-- Replace # with your App Store link when ready -->
+            <a class="btn primary" href="#" rel="noopener">Get the app</a>
+            <a class="btn" href="./support.html">Support & FAQ</a>
+          </div>
+
+          <ul class="bullets">
+            <li>
+              <span class="check" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-4-4" stroke="#1E3A5F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Daily practice in both directions: English → Mongolian and Mongolian → English.
+            </li>
+            <li>
+              <span class="check" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-4-4" stroke="#1E3A5F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Track your confidence per word (Learning / Familiar / Mastered).
+            </li>
+            <li>
+              <span class="check" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-4-4" stroke="#1E3A5F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Customize your dictionary: add, edit, and organize words by category.
+            </li>
+          </ul>
+
+          <div class="privacy" role="note" aria-label="Privacy note">
+            <span class="pill">Works offline</span>
+            <span class="pill">No accounts</span>
+            <span class="pill">No tracking</span>
+            <span class="pill">Data stored on device</span>
+          </div>
+        </div>
+
+        <!-- Hero screenshot (pick your favorite as the lead image) -->
+        <div class="phone" aria-label="App screenshot">
+          <img src="assets/screenshot-5.png" alt="Mongolian Vocab Today screen showing daily practice progress." />
+        </div>
+      </div>
+
+      <section id="features" aria-label="Features">
+        <div class="section-title">
+          <h2>Built for consistency</h2>
+          <span>Small daily wins add up</span>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Daily practice</h3>
+            <p>Practice a small set of words each day in two directions for steady progress.</p>
+          </div>
+          <div class="card">
+            <h3>Confidence tracking</h3>
+            <p>Mark each word as Learning, Familiar, or Mastered—so you know what to review next.</p>
+          </div>
+          <div class="card">
+            <h3>Custom dictionary</h3>
+            <p>Add your own words, edit existing entries, and browse by category with fast search.</p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Dictionary packs</h3>
+            <p>Optionally add themed word packs (e.g., animals) without overwriting your personal edits.</p>
+          </div>
+          <div class="card">
+            <h3>Offline-first</h3>
+            <p>Your dictionary and progress stay on your device. No internet connection required.</p>
+          </div>
+          <div class="card">
+            <h3>Private by design</h3>
+            <p>No accounts, no analytics, and no third-party tracking. Simple and focused.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="screens" aria-label="Screenshots">
+        <div class="section-title">
+          <h2>See it in action</h2>
+          <span>Tap, practice, and move on</span>
+        </div>
+
+        <div class="shots">
+          <div class="shot"><img src="assets/screenshot-1.png" alt="Dictionary Updates screen showing an Animals Pack with Preview and Add buttons." /></div>
+          <div class="shot"><img src="assets/screenshot-2.png" alt="Dictionary list screen with search and categorized vocabulary entries." /></div>
+          <div class="shot"><img src="assets/screenshot-3.png" alt="Flashcard screen showing Mongolian text and confidence buttons." /></div>
+          <div class="shot"><img src="assets/screenshot-4.png" alt="Flashcard screen showing English word and learning status." /></div>
+          <div class="shot"><img src="assets/screenshot-5.png" alt="Today screen showing daily practice completed in both directions." /></div>
+        </div>
+
+        <p style="margin:14px 0 0; color:var(--muted); font-size:13px; line-height:1.6;">
+          Screenshots shown are from an in-progress build. UI and content may change as the dictionary expands.
+        </p>
+      </section>
+
+      <section aria-label="Call to action" style="margin-top:34px;">
+        <div class="hero" style="grid-template-columns:1fr; text-align:center;">
+          <div>
+            <div class="kicker" style="justify-content:center;">Ready when you are</div>
+            <h2 style="margin:0 0 8px; font-size:28px; letter-spacing:-.02em;">Start learning today.</h2>
+            <p class="sub" style="margin:0 auto 16px; max-width:680px;">
+              A focused Mongolian vocabulary companion—built to be simple, offline, and respectful of your privacy.
+            </p>
+            <div class="cta" style="justify-content:center; flex-wrap:wrap;">
+              <!-- Replace # with your App Store link when ready -->
+              <a class="btn primary" href="#" rel="noopener">Download</a>
+              <a class="btn" href="./support.html">Support</a>
+              <a class="btn" href="./privacy.html">Privacy Policy</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Mongolian Vocab</div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a href="./support.html">Support</a>
+        <a href="./privacy.html">Privacy</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
