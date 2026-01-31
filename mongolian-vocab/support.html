@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mongolian Vocab — Support</title>
+  <meta name="description" content="Support, FAQs, and contact information for Mongolian Vocab." />
+  <meta name="theme-color" content="#1A1A1A" />
+  <style>
+    :root{
+      --bg:#FBF7EF;
+      --card:#FFFFFF;
+      --ink:#1F2937;
+      --muted:#6B7280;
+      --brand:#D6A525;
+      --navy:#1E3A5F;
+      --border:rgba(31,41,55,.10);
+      --shadow:0 18px 40px rgba(0,0,0,.08);
+      --radius:18px;
+      --max:900px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--ink);
+      background:radial-gradient(1200px 700px at 20% -10%, rgba(214,165,37,.15), transparent 60%),
+                 radial-gradient(1200px 700px at 90% 10%, rgba(30,58,95,.12), transparent 60%),
+                 var(--bg);
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 60px}
+    header{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px; padding:10px 0 18px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      text-decoration:none;
+    }
+    .logo{
+      width:44px; height:44px; border-radius:14px;
+      background:linear-gradient(135deg, #111827, #2B2F36);
+      display:grid; place-items:center;
+      box-shadow: 0 10px 25px rgba(0,0,0,.18);
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .logo svg{width:26px; height:26px}
+    .brand strong{font-size:16px; letter-spacing:.2px}
+    .brand span{display:block; font-size:12px; color:var(--muted); margin-top:1px}
+    nav{display:flex; gap:14px; align-items:center; flex-wrap:wrap}
+    nav a{
+      font-size:14px; color:var(--muted); text-decoration:none;
+      padding:8px 10px; border-radius:12px;
+    }
+    nav a:hover{background:rgba(31,41,55,.06); color:var(--ink)}
+    .panel{
+      padding:22px;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      background:rgba(255,255,255,.60);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+    }
+    h1{margin:0 0 6px; font-size:34px; letter-spacing:-.02em}
+    .sub{margin:0 0 16px; color:var(--muted); font-size:15px; line-height:1.6}
+    .row{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:14px}
+    .card{
+      background:rgba(255,255,255,.72);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:16px;
+      box-shadow: 0 10px 26px rgba(0,0,0,.06);
+    }
+    .card h2{margin:0 0 8px; font-size:16px}
+    .card p{margin:0; color:var(--muted); font-size:14px; line-height:1.6}
+    .faq{margin-top:16px}
+    details{
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.72);
+      border-radius:16px;
+      padding:12px 14px;
+      box-shadow: 0 10px 26px rgba(0,0,0,.05);
+      margin-bottom:10px;
+    }
+    summary{
+      cursor:pointer;
+      font-weight:700;
+      list-style:none;
+      outline:none;
+    }
+    summary::-webkit-details-marker{display:none}
+    details p{margin:10px 0 0; color:var(--muted); font-size:14px; line-height:1.65}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px; border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.55);
+      color:rgba(31,41,55,.86);
+      font-size:13px;
+      text-decoration:none;
+    }
+    .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+    footer{
+      margin-top:28px;
+      padding-top:16px;
+      border-top:1px solid var(--border);
+      color:var(--muted);
+      font-size:13px;
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    }
+    @media (max-width: 820px){
+      .row{grid-template-columns:1fr}
+      h1{font-size:28px}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="./marketing.html" aria-label="Mongolian Vocab Home">
+        <div class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M7 7h10v10H7z" stroke="#D6A525" stroke-width="2" opacity=".9"/>
+            <path d="M7 12h10" stroke="#D6A525" stroke-width="2" opacity=".9"/>
+            <path d="M12 7v10" stroke="#D6A525" stroke-width="2" opacity=".9"/>
+          </svg>
+        </div>
+        <div>
+          <strong>Mongolian Vocab</strong>
+          <span>Support & FAQ</span>
+        </div>
+      </a>
+
+      <nav>
+        <a href="./marketing.html">Home</a>
+        <a href="./privacy.html">Privacy</a>
+      </nav>
+    </header>
+
+    <main class="panel">
+      <h1>Support</h1>
+      <p class="sub">
+        Need help with Mongolian Vocab? Start with the FAQs below or contact support.
+      </p>
+
+      <div class="actions">
+        <!-- Update email if you want a dedicated support address -->
+        <a class="pill" href="mailto:joshua.albrechtsen+mv@gmail.com?subject=Mongolian%20Vocab%20Support">Email support</a>
+        <a class="pill" href="./privacy.html">Privacy policy</a>
+        <!-- Replace # with your App Store link when ready -->
+        <a class="pill" href="#" rel="noopener">App Store page</a>
+      </div>
+
+      <div class="row">
+        <div class="card">
+          <h2>Contact</h2>
+          <p>
+            Email: <a href="mailto:joshua.albrechtsen+mv@gmail.com?subject=Mongolian%20Vocab%20Support">joshua.albrechtsen+mv@gmail.com</a><br/>
+            Please include your iPhone model and iOS version if you're reporting a bug.
+          </p>
+        </div>
+        <div class="card">
+          <h2>Privacy</h2>
+          <p>
+            Mongolian Vocab does not require an account and does not use third-party analytics.
+            Your dictionary and learning progress are stored locally on your device.
+          </p>
+        </div>
+      </div>
+
+      <section class="faq" aria-label="Frequently Asked Questions">
+        <h2 style="margin:18px 0 10px; font-size:18px;">FAQs</h2>
+
+        <details>
+          <summary>Does the app work offline?</summary>
+          <p>
+            Yes. Mongolian Vocab is designed to work without an internet connection.
+            Your dictionary and learning progress are stored locally on your device.
+          </p>
+        </details>
+
+        <details>
+          <summary>Will an update overwrite my personal dictionary?</summary>
+          <p>
+            No. Your custom words, edits, and learning progress are stored separately from the built-in dictionary.
+            Updates should not overwrite your personal changes.
+          </p>
+        </details>
+
+        <details>
+          <summary>How do dictionary packs work?</summary>
+          <p>
+            Dictionary packs let you add optional word bundles (like Animals). You can preview a pack and choose whether
+            to add it. Packs are meant to augment your dictionary without removing your existing edits.
+          </p>
+        </details>
+
+        <details>
+          <summary>How do I report a translation issue?</summary>
+          <p>
+            Email support with the English word, the Mongolian text, and what you believe the correct translation should be.
+            If possible, include a screenshot.
+          </p>
+        </details>
+
+        <details>
+          <summary>Can I request new word categories?</summary>
+          <p>
+            Yes—send a note with the category name (e.g., “food”, “travel”, “family”) and 10-20 suggested words.
+          </p>
+        </details>
+
+        <details>
+          <summary>I found a bug—what should I include?</summary>
+          <p>
+            Please include: what you were doing, what you expected, what happened instead,
+            and your iOS version + device model.
+          </p>
+        </details>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Mongolian Vocab</div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a href="./marketing.html">Home</a>
+        <a href="./privacy.html">Privacy</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
